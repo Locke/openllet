@@ -1,3 +1,14 @@
+Openllet-locke
+-----------------------------------------------
+
+This is a fork of Openllet, original README below.
+
+Changes to upstream:
+- enabled GitHub Actions CI
+
+This branch is likely to be rebased and force-pushed.
+Any releases will be tagged and linked, tags won't be changed.
+
 Openllet: An Open Source OWL DL reasoner for Java
 -----------------------------------------------
 
