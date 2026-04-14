@@ -50,12 +50,12 @@ Openllet 2.6.X:
 
 ```xml
 	<dependency>
-		<groupId>com.github.galigator.openllet</groupId>
+		<groupId>de.athalis.openllet</groupId>
 		<artifactId>openllet-owlapi</artifactId>
 		<version>2.6.5</version>
 	</dependency>
 	<dependency>
-		<groupId>com.github.galigator.openllet</groupId>
+		<groupId>de.athalis.openllet</groupId>
 		<artifactId>openllet-jena</artifactId>
 		<version>2.6.5</version>
 	</dependency>
