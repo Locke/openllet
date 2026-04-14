@@ -71,10 +71,6 @@
     <asmVersion>8.0.1</asmVersion>
   </properties>
 
-  <prerequisites>
-      <maven>3.5.2</maven>
-  </prerequisites>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -224,6 +220,10 @@
 						</goals>
 						<configuration>
 							<rules>
+								<requireMavenVersion>
+									<version>3.5.2</version>
+								</requireMavenVersion>
+
 								<requireJavaVersion><!-- Check Java version -->
                                     				<version>[17,)</version>
 								</requireJavaVersion>
