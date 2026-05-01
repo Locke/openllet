@@ -1,0 +1,55 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Java CI with Maven
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'checkout reference (sha/branch)'
+        required: false
+        type: string
+  push:
+    branches-ignore:
+      - master
+  pull_request:
+    branches-ignore:
+      - master
+
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false # don't stop other OS/JDK
+      matrix:
+        os: ['ubuntu-latest', 'windows-latest']
+        jdk: ['17', '21']
+        experimental: [false]
+        include:
+          - os: 'macos-latest'
+            jdk: '21'
+            experimental: true
+
+    continue-on-error: ${{ matrix.experimental }}
+    runs-on: ${{ matrix.os }}
+    env:
+      JDK_VERSION: ${{ matrix.jdk }}
+
+    steps:
+    - uses: actions/checkout@v6
+      with:
+        ref: ${{ inputs.ref }}
+    - name: Set up JDK ${{ matrix.jdk }}
+      uses: actions/setup-java@v5
+      with:
+        java-version: ${{ matrix.jdk }}
+        distribution: 'temurin'
+        cache:        'maven'
+
+
+    - name: Compile & Package
+      run: mvn -B -DskipTests=true compile package --file pom.xml
+
+    - name: Test
+      run: mvn -B verify --file pom.xml
