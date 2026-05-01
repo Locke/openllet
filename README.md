@@ -9,6 +9,12 @@ Changes to upstream:
 This branch is likely to be rebased and force-pushed.
 Any releases will be tagged and linked, tags won't be changed.
 
+## branches:
+- [integration-ci](https://github.com/Locke/openllet/tree/integration-ci)
+  - add GitHub Actions CI
+- [dependency-fixes](https://github.com/Locke/openllet/tree/dependency-fixes)
+  - minimal changes to dependencies, to fix specific problems
+
 Openllet: An Open Source OWL DL reasoner for Java
 -----------------------------------------------
 
